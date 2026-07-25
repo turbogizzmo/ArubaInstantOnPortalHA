@@ -6,7 +6,11 @@ tests, translations, and documentation improvements.
 ## Ground rules
 
 - Never commit portal credentials, access tokens, cookies, site UUIDs, serial
-  numbers, MAC addresses, public IP addresses, or client-identifying data.
+  numbers, MAC addresses, IP addresses, personal names, site/room names, or
+  client-identifying data.
+- Use only neutral examples such as `Example Site`, `Access Point 1`,
+  `Switch 1`, `example_site`, `ap_1`, and `switch_1`.
+- Follow the complete [privacy and example-data policy](docs/PRIVACY.md).
 - Keep all operations read-only unless a future proposal receives explicit
   security review and opt-in design.
 - Treat every API field as optional.
@@ -16,6 +20,7 @@ tests, translations, and documentation improvements.
 ## Local checks
 
 ```bash
+python3 .github/scripts/check_privacy.py
 python3 -m compileall -q custom_components/aruba_instant_on
 python3 -m json.tool custom_components/aruba_instant_on/manifest.json
 python3 -m json.tool custom_components/aruba_instant_on/strings.json

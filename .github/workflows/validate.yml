@@ -5,6 +5,13 @@ on:
   pull_request:
 
 jobs:
+  privacy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Check for deployment data
+        run: python3 .github/scripts/check_privacy.py
+
   hassfest:
     runs-on: ubuntu-latest
     steps:
