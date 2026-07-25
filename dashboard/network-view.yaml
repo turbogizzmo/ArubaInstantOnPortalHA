@@ -1,30 +1,43 @@
+# Reference layout for a responsive combined-network view.
+#
+# `network-cards.json` contains the complete Aruba card definitions used by
+# the live dashboard. Place those cards in the Aruba Instant On section below.
+#
+# Existing pfSense and NextDNS entity IDs vary by installation, so their cards
+# are intentionally represented as placeholders here.
+
 title: Network
 path: network
 icon: mdi:router-network
-# Example cards for the entities created by this integration.
-cards:
+type: sections
+max_columns: 3
+dense_section_placement: false
+
+sections:
+  - type: grid
+    title: Network Core
+    cards:
+      # Network Operations markdown summary
+      # pfSense At a Glance grid
+      # Internet Gateways
+      # Interfaces
+
   - type: grid
     title: Aruba Instant On
-    columns: 3
-    square: false
     cards:
-      - type: tile
-        entity: sensor.example_site_access_points_online
-        name: Access Points
-        icon: mdi:access-point
-      - type: tile
-        entity: sensor.example_site_switches_online
-        name: Switches
-        icon: mdi:switch
-      - type: tile
-        entity: sensor.example_site_wireless_clients
-        name: Wi-Fi Clients
-        icon: mdi:wifi
-      - type: tile
-        entity: sensor.example_site_major_alerts
-        name: Major Alerts
-        icon: mdi:alert-circle
-      - type: tile
-        entity: sensor.example_site_minor_alerts
-        name: Minor Alerts
-        icon: mdi:alert
+      # Copy the six cards from network-cards.json in their existing order:
+      # 1. Aruba Instant On site summary
+      # 2. Traffic & Radio Health
+      # 3. Wi-Fi Client Distribution
+      # 4. Wi-Fi Throughput history
+      # 5. Wireless & Switching Infrastructure
+      # 6. Network Clients & Infrastructure history
+
+  - type: grid
+    title: Security & Performance
+    cards:
+      # NextDNS profile health and filtering
+      # Gateway latency history
+      # Firewall health
+      # WAN throughput
+      # System details and updates
