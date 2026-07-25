@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" viewBox="0 0 1000 500" role="img" aria-labelledby="title">
+  <title id="title">Home Assistant device and entity hierarchy</title>
+  <rect width="1000" height="500" rx="24" fill="#f5f7fb"/>
+  <style>.b{fill:#fff;stroke:#2b6cb0;stroke-width:2}.site{fill:#d9f4f2;stroke:#008b8b;stroke-width:3}.t{font:700 19px sans-serif;fill:#172b4d}.s{font:15px sans-serif;fill:#42526e}.l{stroke:#7a869a;stroke-width:3;fill:none}</style>
+  <rect class="site" x="350" y="40" width="300" height="105" rx="18"/><text class="t" x="500" y="80" text-anchor="middle">Example Site device</text><text class="s" x="500" y="112" text-anchor="middle">Aggregate sensors and status</text>
+  <path class="l" d="M500 145V205M175 205H825M175 205V250M500 205V250M825 205V250"/>
+  <rect class="b" x="55" y="250" width="240" height="155" rx="18"/><text class="t" x="175" y="292" text-anchor="middle">Access Point 1</text><text class="s" x="175" y="330" text-anchor="middle">Connectivity</text><text class="s" x="175" y="360" text-anchor="middle">Uptime</text>
+  <rect class="b" x="380" y="250" width="240" height="155" rx="18"/><text class="t" x="500" y="292" text-anchor="middle">Access Point 2</text><text class="s" x="500" y="330" text-anchor="middle">Connectivity</text><text class="s" x="500" y="360" text-anchor="middle">Uptime</text>
+  <rect class="b" x="705" y="250" width="240" height="155" rx="18"/><text class="t" x="825" y="292" text-anchor="middle">Switch 1</text><text class="s" x="825" y="330" text-anchor="middle">Connectivity</text><text class="s" x="825" y="360" text-anchor="middle">Uptime</text>
+  <text class="s" x="500" y="460" text-anchor="middle">Clients are aggregated; individual client entities are intentionally not created.</text>
+</svg>

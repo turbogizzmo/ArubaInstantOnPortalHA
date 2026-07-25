@@ -41,6 +41,10 @@ modify site configuration.
 
 ## Installation
 
+For an illustrated walkthrough covering installation, account preparation,
+site-ID discovery, configuration, entities, dashboards, and recovery, see the
+[project wiki](wiki/Home.md).
+
 ### Manual
 
 1. Copy `custom_components/aruba_instant_on` to
@@ -123,6 +127,8 @@ included because Home Assistant registry IDs are installation-specific.
 
 See [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) for authentication,
 site-ID, unavailable-entity, API-change, and diagnostics guidance.
+The [illustrated troubleshooting guide](wiki/Troubleshooting.md) also provides
+a decision path and safe diagnostic-sharing checklist.
 
 ## Privacy
 

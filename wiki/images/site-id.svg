@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="280" viewBox="0 0 1000 280" role="img" aria-labelledby="title">
+  <title id="title">Locating the site ID in the portal address</title>
+  <rect width="1000" height="280" rx="24" fill="#f5f7fb"/>
+  <rect x="70" y="70" width="860" height="70" rx="14" fill="#fff" stroke="#9aa6b2" stroke-width="2"/>
+  <circle cx="105" cy="105" r="9" fill="#ef6c68"/><circle cx="133" cy="105" r="9" fill="#f6c85f"/><circle cx="161" cy="105" r="9" fill="#6ccf8d"/>
+  <text x="195" y="113" font-family="monospace" font-size="18" fill="#42526e">portal.example/sites/</text>
+  <rect x="430" y="85" width="430" height="40" rx="7" fill="#d9f4f2"/>
+  <text x="450" y="112" font-family="monospace" font-size="17" fill="#075e5e">11111111-2222-4333-8444-555555555555</text>
+  <path d="M645 145V190" stroke="#00a3a3" stroke-width="4"/>
+  <path d="M635 180L645 195L655 180" fill="#00a3a3"/>
+  <text x="645" y="228" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="20" fill="#172b4d">Copy the site UUID, not the friendly name</text>
+</svg>

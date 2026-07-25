@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="620" viewBox="0 0 1000 620" role="img" aria-labelledby="title">
+  <title id="title">Responsive network dashboard layout</title>
+  <rect width="1000" height="620" rx="24" fill="#172b4d"/>
+  <text x="55" y="62" font-family="sans-serif" font-size="26" font-weight="700" fill="#fff">Network</text>
+  <style>.c{fill:#fff}.h{font:700 18px sans-serif;fill:#172b4d}.p{font:15px sans-serif;fill:#5e6c84}.v{font:700 28px sans-serif;fill:#008b8b}</style>
+  <rect class="c" x="45" y="90" width="280" height="120" rx="16"/><text class="h" x="70" y="125">Site health</text><text class="v" x="70" y="170">All online</text>
+  <rect class="c" x="360" y="90" width="280" height="120" rx="16"/><text class="h" x="385" y="125">Clients</text><text class="v" x="385" y="170">42</text>
+  <rect class="c" x="675" y="90" width="280" height="120" rx="16"/><text class="h" x="700" y="125">Alerts</text><text class="v" x="700" y="170">0 major</text>
+  <rect class="c" x="45" y="245" width="595" height="150" rx="16"/><text class="h" x="70" y="280">Throughput history</text><polyline points="75,360 140,335 205,350 270,300 335,325 400,285 465,315 530,270 600,305" fill="none" stroke="#00a3a3" stroke-width="5"/>
+  <rect class="c" x="675" y="245" width="280" height="150" rx="16"/><text class="h" x="700" y="280">Radio health</text><text class="p" x="700" y="325">5 GHz clients</text><text class="v" x="875" y="328" text-anchor="end">31</text><text class="p" x="700" y="365">Poor signal</text><text class="v" x="875" y="368" text-anchor="end">2</text>
+  <rect class="c" x="45" y="430" width="280" height="135" rx="16"/><text class="h" x="70" y="470">Access points</text><text class="p" x="70" y="510">AP 1 · online</text><text class="p" x="70" y="540">AP 2 · online</text>
+  <rect class="c" x="360" y="430" width="280" height="135" rx="16"/><text class="h" x="385" y="470">Switches</text><text class="p" x="385" y="510">Switch 1 · online</text><text class="p" x="385" y="540">PoE · 38 W</text>
+  <rect class="c" x="675" y="430" width="280" height="135" rx="16"/><text class="h" x="700" y="470">Maintenance</text><text class="p" x="700" y="510">Firmware current</text><text class="p" x="700" y="540">Last refresh · now</text>
+</svg>

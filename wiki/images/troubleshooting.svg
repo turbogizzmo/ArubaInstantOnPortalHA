@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" viewBox="0 0 1000 500" role="img" aria-labelledby="title">
+  <title id="title">Troubleshooting decision tree</title>
+  <rect width="1000" height="500" rx="24" fill="#f5f7fb"/>
+  <style>.b{fill:#fff;stroke:#2b6cb0;stroke-width:2}.q{fill:#d9f4f2;stroke:#008b8b;stroke-width:3}.t{font:700 17px sans-serif;fill:#172b4d}.s{font:14px sans-serif;fill:#42526e}.l{stroke:#7a869a;stroke-width:3;fill:none;marker-end:url(#m)}</style>
+  <defs><marker id="m" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0 0L0 6L9 3z" fill="#7a869a"/></marker></defs>
+  <rect class="q" x="360" y="35" width="280" height="80" rx="16"/><text class="t" x="500" y="82" text-anchor="middle">What is failing?</text>
+  <rect class="b" x="45" y="190" width="200" height="110" rx="16"/><text class="t" x="145" y="230" text-anchor="middle">Not discovered</text><text class="s" x="145" y="260" text-anchor="middle">Path, restart, logs</text>
+  <rect class="b" x="280" y="190" width="200" height="110" rx="16"/><text class="t" x="380" y="230" text-anchor="middle">Cannot sign in</text><text class="s" x="380" y="260" text-anchor="middle">Account, MFA, access</text>
+  <rect class="b" x="515" y="190" width="200" height="110" rx="16"/><text class="t" x="615" y="230" text-anchor="middle">Unknown sensor</text><text class="s" x="615" y="260" text-anchor="middle">Optional endpoint</text>
+  <rect class="b" x="750" y="190" width="205" height="110" rx="16"/><text class="t" x="852" y="230" text-anchor="middle">Updates stopped</text><text class="s" x="852" y="260" text-anchor="middle">Reload, logs, diagnostics</text>
+  <path class="l" d="M500 115V150H145V180"/><path class="l" d="M500 150H380V180"/><path class="l" d="M500 150H615V180"/><path class="l" d="M500 150H852V180"/>
+  <rect class="q" x="300" y="370" width="400" height="80" rx="16"/><text class="t" x="500" y="405" text-anchor="middle">Redact before sharing</text><text class="s" x="500" y="432" text-anchor="middle">No credentials, IDs, addresses, names, or client records</text>
+  <path class="l" d="M145 300V335H500V360"/><path class="l" d="M380 300V335"/><path class="l" d="M615 300V335"/><path class="l" d="M852 300V335H500"/>
+</svg>

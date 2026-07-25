@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="360" viewBox="0 0 1000 360" role="img" aria-labelledby="title desc">
+  <title id="title">Aruba Instant On integration overview</title>
+  <desc id="desc">Data travels from an Instant On site through its cloud portal and the custom integration into Home Assistant devices, sensors, and dashboards.</desc>
+  <rect width="1000" height="360" rx="24" fill="#f5f7fb"/>
+  <style>.box{fill:#fff;stroke:#2b6cb0;stroke-width:3}.h{font:700 22px sans-serif;fill:#172b4d}.p{font:16px sans-serif;fill:#42526e}.a{stroke:#00a3a3;stroke-width:5;fill:none;marker-end:url(#m)}</style>
+  <defs><marker id="m" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#00a3a3"/></marker></defs>
+  <rect class="box" x="45" y="95" width="205" height="165" rx="18"/>
+  <text class="h" x="148" y="140" text-anchor="middle">Instant On site</text>
+  <text class="p" x="148" y="180" text-anchor="middle">Access points</text><text class="p" x="148" y="208" text-anchor="middle">Switches and clients</text>
+  <rect class="box" x="310" y="95" width="180" height="165" rx="18"/>
+  <text class="h" x="400" y="140" text-anchor="middle">Cloud portal</text>
+  <text class="p" x="400" y="180" text-anchor="middle">OAuth + PKCE</text><text class="p" x="400" y="208" text-anchor="middle">Read-only API</text>
+  <rect class="box" x="550" y="95" width="180" height="165" rx="18"/>
+  <text class="h" x="640" y="140" text-anchor="middle">Integration</text>
+  <text class="p" x="640" y="180" text-anchor="middle">Coordinator</text><text class="p" x="640" y="208" text-anchor="middle">Entity model</text>
+  <rect class="box" x="790" y="65" width="165" height="225" rx="18"/>
+  <text class="h" x="872" y="112" text-anchor="middle">Home Assistant</text>
+  <text class="p" x="872" y="160" text-anchor="middle">Devices</text><text class="p" x="872" y="190" text-anchor="middle">Sensors</text><text class="p" x="872" y="220" text-anchor="middle">History</text><text class="p" x="872" y="250" text-anchor="middle">Dashboard</text>
+  <path class="a" d="M250 178H300"/><path class="a" d="M490 178H540"/><path class="a" d="M730 178H780"/>
+</svg>
