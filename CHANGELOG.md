@@ -7,6 +7,8 @@ and the project intends to use semantic versioning.
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-07-25
+
 ### Fixed
 
 - Correctly classify the current `/clientSummary` response, which contains
@@ -29,3 +31,6 @@ and the project intends to use semantic versioning.
 - MFA is not supported by the automated portal authentication flow.
 - Wired-client data may be unavailable on older API variants where neither
   the combined nor legacy client-summary response includes wired clients.
+
+[Unreleased]: https://github.com/turbogizzmo/ArubaInstantOnPortalHA/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/turbogizzmo/ArubaInstantOnPortalHA/releases/tag/v0.1.0

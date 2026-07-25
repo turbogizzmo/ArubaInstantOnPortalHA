@@ -11,11 +11,7 @@
         "name": "Access Points",
         "icon": "mdi:access-point",
         "vertical": true,
-        "color": "blue",
-        "tap_action": {
-          "action": "navigate",
-          "navigation_path": "/config/devices/device/REPLACE_WITH_SITE_DEVICE_ID"
-        }
+        "color": "blue"
       },
       {
         "type": "tile",
@@ -23,11 +19,7 @@
         "name": "Switches",
         "icon": "mdi:switch",
         "vertical": true,
-        "color": "teal",
-        "tap_action": {
-          "action": "navigate",
-          "navigation_path": "/config/devices/device/REPLACE_WITH_SITE_DEVICE_ID"
-        }
+        "color": "teal"
       },
       {
         "type": "tile",
@@ -35,11 +27,7 @@
         "name": "Wi-Fi Clients",
         "icon": "mdi:wifi",
         "vertical": true,
-        "color": "cyan",
-        "tap_action": {
-          "action": "navigate",
-          "navigation_path": "/config/devices/device/REPLACE_WITH_SITE_DEVICE_ID"
-        }
+        "color": "cyan"
       },
       {
         "type": "tile",
@@ -47,11 +35,7 @@
         "name": "Wired Clients",
         "icon": "mdi:ethernet",
         "vertical": true,
-        "color": "indigo",
-        "tap_action": {
-          "action": "navigate",
-          "navigation_path": "/config/devices/device/REPLACE_WITH_SITE_DEVICE_ID"
-        }
+        "color": "indigo"
       },
       {
         "type": "tile",
@@ -59,11 +43,7 @@
         "name": "Infrastructure Online",
         "icon": "mdi:lan-check",
         "vertical": true,
-        "color": "green",
-        "tap_action": {
-          "action": "navigate",
-          "navigation_path": "/config/devices/device/REPLACE_WITH_SITE_DEVICE_ID"
-        }
+        "color": "green"
       },
       {
         "type": "tile",
@@ -71,11 +51,7 @@
         "name": "Wireless Networks",
         "icon": "mdi:wifi-cog",
         "vertical": true,
-        "color": "purple",
-        "tap_action": {
-          "action": "navigate",
-          "navigation_path": "/config/devices/device/REPLACE_WITH_SITE_DEVICE_ID"
-        }
+        "color": "purple"
       },
       {
         "type": "tile",
@@ -83,11 +59,7 @@
         "name": "Major Alerts",
         "icon": "mdi:alert-circle",
         "vertical": true,
-        "color": "red",
-        "tap_action": {
-          "action": "navigate",
-          "navigation_path": "/config/devices/device/REPLACE_WITH_SITE_DEVICE_ID"
-        }
+        "color": "red"
       }
     ]
   },
@@ -202,80 +174,31 @@
     "cards": [
       {
         "type": "tile",
-        "entity": "binary_sensor.ap_1_ap_1_connectivity",
+        "entity": "binary_sensor.ap_1_connectivity",
         "name": "Access Point 1",
         "icon": "mdi:access-point",
-        "color": "blue",
-        "tap_action": {
-          "action": "navigate",
-          "navigation_path": "/config/devices/device/REPLACE_WITH_DEVICE_ID_1"
-        }
+        "color": "blue"
       },
       {
         "type": "tile",
-        "entity": "binary_sensor.ap_2_ap_2_connectivity",
-        "name": "Hot Tub",
+        "entity": "binary_sensor.ap_2_connectivity",
+        "name": "Access Point 2",
         "icon": "mdi:access-point",
-        "color": "blue",
-        "tap_action": {
-          "action": "navigate",
-          "navigation_path": "/config/devices/device/REPLACE_WITH_DEVICE_ID_2"
-        }
-      },
-      {
-        "type": "tile",
-        "entity": "binary_sensor.ap_3_ap_3_connectivity",
-        "name": "Access Point 3",
-        "icon": "mdi:access-point",
-        "color": "blue",
-        "tap_action": {
-          "action": "navigate",
-          "navigation_path": "/config/devices/device/REPLACE_WITH_DEVICE_ID_3"
-        }
-      },
-      {
-        "type": "tile",
-        "entity": "binary_sensor.ap_4_ap_4_connectivity",
-        "name": "Access Point 4",
-        "icon": "mdi:switch",
-        "color": "teal",
-        "tap_action": {
-          "action": "navigate",
-          "navigation_path": "/config/devices/device/REPLACE_WITH_DEVICE_ID_4"
-        }
-      },
-      {
-        "type": "tile",
-        "entity": "binary_sensor.ap_5_ap_5_connectivity",
-        "name": "Access Point 5",
-        "icon": "mdi:switch",
-        "color": "teal",
-        "tap_action": {
-          "action": "navigate",
-          "navigation_path": "/config/devices/device/REPLACE_WITH_DEVICE_ID_5"
-        }
+        "color": "blue"
       },
       {
         "type": "tile",
         "entity": "binary_sensor.switch_1_connectivity",
-        "name": "Switch Switch 1",
+        "name": "Switch 1",
         "icon": "mdi:switch",
-        "color": "teal",
-        "tap_action": {
-          "action": "navigate",
-          "navigation_path": "/config/devices/device/REPLACE_WITH_DEVICE_ID_6"
-        }
+        "color": "teal"
       },
       {
         "type": "tile",
         "entity": "binary_sensor.switch_2_connectivity",
-        "name": "Switch Switch 2",
+        "name": "Switch 2",
         "icon": "mdi:switch",
-        "color": "teal",
-        "tap_action": {
-          "action": "navigate",
-          "navigation_path": "/config/devices/device/REPLACE_WITH_DEVICE_ID_7"
-        }
+        "color": "teal"
       }
     ]
   },

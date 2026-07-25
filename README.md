@@ -1,5 +1,9 @@
 # Aruba Instant On for Home Assistant
 
+[![Validate](https://github.com/turbogizzmo/ArubaInstantOnPortalHA/actions/workflows/validate.yml/badge.svg)](https://github.com/turbogizzmo/ArubaInstantOnPortalHA/actions/workflows/validate.yml)
+[![HACS Custom](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://www.hacs.xyz/docs/faq/custom_repositories/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 A read-only Home Assistant custom integration for cloud-managed
 [Aruba Instant On](https://www.arubainstanton.com/) sites.
 
@@ -47,8 +51,14 @@ modify site configuration.
 
 ### HACS
 
-HACS installation will be available after this repository is published and
-submitted or added as a custom repository.
+1. Open **HACS → Integrations**.
+2. Open the menu and select **Custom repositories**.
+3. Add
+   `https://github.com/turbogizzmo/ArubaInstantOnPortalHA`
+   with category **Integration**.
+4. Install **Aruba Instant On** and restart Home Assistant.
+5. Open **Settings → Devices & services → Add integration** and search for
+   **Aruba Instant On**.
 
 ## Account preparation
 
@@ -72,6 +82,9 @@ The setup form requires:
 | Password | Password for that account |
 | Site ID | UUID from the Instant On portal |
 | Polling interval | 60–3600 seconds; 300 recommended |
+
+The site ID is the UUID shown in the Instant On portal URL while viewing the
+site. It is not the site name, account ID, or device serial number.
 
 ## Entities
 
@@ -101,6 +114,16 @@ Reusable cards are provided in:
 The live design combines Aruba Instant On with pfSense and NextDNS, but the
 Aruba card group can be used independently.
 
+The examples intentionally use placeholder entity IDs such as
+`sensor.example_site_wireless_clients`. Replace them with the entity IDs
+created for your site. Device-specific navigation paths are intentionally not
+included because Home Assistant registry IDs are installation-specific.
+
+## Troubleshooting
+
+See [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) for authentication,
+site-ID, unavailable-entity, API-change, and diagnostics guidance.
+
 ## Privacy
 
 The coordinator receives client-level records from the portal to calculate
@@ -119,13 +142,18 @@ python3 -m json.tool custom_components/aruba_instant_on/strings.json
 See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for protocol and component
 design details.
 
-## Publishing checklist
+## Compatibility
 
-- Replace `OWNER` in repository URLs.
-- Add unit tests with recorded, fully redacted fixtures.
-- Run Hassfest and HACS validation.
-- Perform a credential and diagnostics-redaction review.
-- Document tested Instant On portal and Home Assistant versions.
+The integration is developed against current Home Assistant releases and the
+current Instant On portal API. Because the upstream API is private, compatibility
+cannot be guaranteed after portal changes. Release notes document known API
+behavior changes.
+
+| Component | Last verified |
+| --- | --- |
+| Home Assistant | 2026.7.4 |
+| Aruba Instant On portal | 2026-07-25 |
+| Integration | 0.1.0 |
 
 ## Credits
 

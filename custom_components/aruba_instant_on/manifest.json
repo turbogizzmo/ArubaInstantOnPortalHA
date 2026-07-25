@@ -1,10 +1,10 @@
 {
   "domain": "aruba_instant_on",
   "name": "Aruba Instant On",
-  "codeowners": [],
+  "codeowners": ["@turbogizzmo"],
   "config_flow": true,
-  "documentation": "https://github.com/OWNER/aruba-instant-on-home-assistant",
-  "issue_tracker": "https://github.com/OWNER/aruba-instant-on-home-assistant/issues",
+  "documentation": "https://github.com/turbogizzmo/ArubaInstantOnPortalHA",
+  "issue_tracker": "https://github.com/turbogizzmo/ArubaInstantOnPortalHA/issues",
   "integration_type": "hub",
   "iot_class": "cloud_polling",
   "requirements": [],

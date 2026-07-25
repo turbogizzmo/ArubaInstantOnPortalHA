@@ -22,13 +22,13 @@ On narrower screens Home Assistant collapses these sections responsively.
 
 ## Drill-down behavior
 
-- Site-summary tiles navigate to the Home Assistant site device.
-- AP and switch tiles navigate directly to their corresponding device pages.
+- Site-summary tiles open standard Home Assistant entity details.
+- Add installation-specific navigation paths after importing if direct device
+  drill-down is desired.
 - Traffic and history cards retain Home Assistant's standard More Info and
   History navigation.
 
 ## Portability
 
-The sample entity IDs contain the live display names assigned during initial
-development. Home Assistant may generate different entity IDs when a site or
-device has a different name. Update the IDs after installing the integration.
+The sample uses sanitized placeholders such as `example_site`, `ap_1`, and
+`switch_1`. Replace them with the entity IDs created by your installation.

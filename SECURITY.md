@@ -9,8 +9,8 @@ Until the first stable release, only the latest commit is supported.
 Do not open a public issue containing credentials, tokens, cookies, site IDs,
 serial numbers, MAC addresses, IP addresses, or client records.
 
-After publication, use the repository's private security-advisory feature.
-Before publication, report findings privately to the repository owner.
+Use the repository's
+[private security-advisory feature](https://github.com/turbogizzmo/ArubaInstantOnPortalHA/security/advisories/new).
 
 ## Credential model
 

@@ -1,0 +1,58 @@
+name: Bug report
+description: Report a reproducible integration problem using redacted details.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Never post portal credentials, tokens, cookies, site UUIDs, serial
+        numbers, MAC addresses, IP addresses, or client records.
+  - type: input
+    id: home_assistant_version
+    attributes:
+      label: Home Assistant version
+      placeholder: 2026.7.4
+    validations:
+      required: true
+  - type: input
+    id: integration_version
+    attributes:
+      label: Integration version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: dropdown
+    id: failure_area
+    attributes:
+      label: Failure area
+      options:
+        - Authentication
+        - Site validation
+        - Coordinator update
+        - Missing or incorrect entity
+        - Dashboard example
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe expected and actual behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Redacted logs
+      render: text
+      description: Include only the minimal relevant excerpt after redaction.
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Privacy confirmation
+      options:
+        - label: I removed credentials, tokens, identifiers, addresses, and client records.
+          required: true
