@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Cloud-managed network">
+  <rect width="256" height="256" rx="52" fill="#1578d3"/>
+  <path d="M77 135c-22 0-40-17-40-39 0-20 15-36 35-39 9-23 31-38 57-38 31 0 57 22 61 52 18 3 32 19 32 38 0 22-18 40-40 40H77c-22 0-40-18-40-40" fill="#fff" opacity=".96"/>
+  <g fill="none" stroke="#1578d3" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M92 105h72M128 105v43M92 148h72"/>
+  </g>
+  <g fill="#1578d3">
+    <circle cx="92" cy="105" r="13"/>
+    <circle cx="164" cy="105" r="13"/>
+    <circle cx="92" cy="148" r="13"/>
+    <circle cx="128" cy="148" r="13"/>
+    <circle cx="164" cy="148" r="13"/>
+  </g>
+  <path d="M70 202h116" stroke="#fff" stroke-width="14" stroke-linecap="round"/>
+</svg>

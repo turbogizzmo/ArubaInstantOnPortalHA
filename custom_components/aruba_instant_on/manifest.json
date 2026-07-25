@@ -4,9 +4,9 @@
   "codeowners": ["@turbogizzmo"],
   "config_flow": true,
   "documentation": "https://github.com/turbogizzmo/ArubaInstantOnPortalHA",
-  "issue_tracker": "https://github.com/turbogizzmo/ArubaInstantOnPortalHA/issues",
   "integration_type": "hub",
   "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/turbogizzmo/ArubaInstantOnPortalHA/issues",
   "requirements": [],
   "version": "0.1.0"
 }
