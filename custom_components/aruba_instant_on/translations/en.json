@@ -1,0 +1,59 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to Aruba Instant On",
+        "description": "Use a dedicated Instant On account with access only to the site you want to monitor.",
+        "data": {
+          "username": "Email",
+          "password": "Password",
+          "site_id": "Site ID",
+          "scan_interval": "Polling interval (seconds)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Unable to connect to Aruba Instant On",
+      "invalid_auth": "Authentication failed or the site is not accessible"
+    },
+    "abort": {
+      "already_configured": "This Instant On site is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Aruba Instant On options",
+        "data": {
+          "scan_interval": "Polling interval (seconds)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "infrastructure_devices": {"name": "Infrastructure devices"},
+      "devices_online": {"name": "Devices online"},
+      "access_points_online": {"name": "Access points online"},
+      "switches_online": {"name": "Switches online"},
+      "wireless_clients": {"name": "Wireless clients"},
+      "wired_clients": {"name": "Wired clients"},
+      "wireless_networks": {"name": "Wireless networks"},
+      "major_alerts": {"name": "Major alerts"},
+      "minor_alerts": {"name": "Minor alerts"},
+      "info_alerts": {"name": "Information alerts"},
+      "download_throughput": {"name": "Download throughput"},
+      "upload_throughput": {"name": "Upload throughput"},
+      "download_24h": {"name": "Downloaded in 24 hours"},
+      "upload_24h": {"name": "Uploaded in 24 hours"},
+      "clients_24ghz": {"name": "2.4 GHz clients"},
+      "clients_5ghz": {"name": "5 GHz clients"},
+      "clients_6ghz": {"name": "6 GHz clients"},
+      "average_signal": {"name": "Average client signal"},
+      "average_snr": {"name": "Average client SNR"},
+      "poor_signal_clients": {"name": "Poor signal clients"},
+      "poe_power": {"name": "PoE power"},
+      "firmware_updates": {"name": "Devices needing firmware"}
+    }
+  }
+}

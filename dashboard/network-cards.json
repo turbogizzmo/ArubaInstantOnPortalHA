@@ -1,0 +1,289 @@
+[
+  {
+    "type": "grid",
+    "title": "Aruba Instant On · Example Site",
+    "columns": 3,
+    "square": false,
+    "cards": [
+      {
+        "type": "tile",
+        "entity": "sensor.example_site_access_points_online",
+        "name": "Access Points",
+        "icon": "mdi:access-point",
+        "vertical": true,
+        "color": "blue",
+        "tap_action": {
+          "action": "navigate",
+          "navigation_path": "/config/devices/device/REPLACE_WITH_SITE_DEVICE_ID"
+        }
+      },
+      {
+        "type": "tile",
+        "entity": "sensor.example_site_switches_online",
+        "name": "Switches",
+        "icon": "mdi:switch",
+        "vertical": true,
+        "color": "teal",
+        "tap_action": {
+          "action": "navigate",
+          "navigation_path": "/config/devices/device/REPLACE_WITH_SITE_DEVICE_ID"
+        }
+      },
+      {
+        "type": "tile",
+        "entity": "sensor.example_site_wireless_clients",
+        "name": "Wi-Fi Clients",
+        "icon": "mdi:wifi",
+        "vertical": true,
+        "color": "cyan",
+        "tap_action": {
+          "action": "navigate",
+          "navigation_path": "/config/devices/device/REPLACE_WITH_SITE_DEVICE_ID"
+        }
+      },
+      {
+        "type": "tile",
+        "entity": "sensor.example_site_devices_online",
+        "name": "Infrastructure Online",
+        "icon": "mdi:lan-check",
+        "vertical": true,
+        "color": "green",
+        "tap_action": {
+          "action": "navigate",
+          "navigation_path": "/config/devices/device/REPLACE_WITH_SITE_DEVICE_ID"
+        }
+      },
+      {
+        "type": "tile",
+        "entity": "sensor.example_site_wireless_networks",
+        "name": "Wireless Networks",
+        "icon": "mdi:wifi-cog",
+        "vertical": true,
+        "color": "purple",
+        "tap_action": {
+          "action": "navigate",
+          "navigation_path": "/config/devices/device/REPLACE_WITH_SITE_DEVICE_ID"
+        }
+      },
+      {
+        "type": "tile",
+        "entity": "sensor.example_site_major_alerts",
+        "name": "Major Alerts",
+        "icon": "mdi:alert-circle",
+        "vertical": true,
+        "color": "red",
+        "tap_action": {
+          "action": "navigate",
+          "navigation_path": "/config/devices/device/REPLACE_WITH_SITE_DEVICE_ID"
+        }
+      }
+    ]
+  },
+  {
+    "type": "grid",
+    "title": "Aruba Traffic & Radio Health",
+    "columns": 3,
+    "square": false,
+    "cards": [
+      {
+        "type": "tile",
+        "entity": "sensor.example_site_download_throughput",
+        "name": "Wi-Fi Download",
+        "icon": "mdi:download-network",
+        "color": "blue"
+      },
+      {
+        "type": "tile",
+        "entity": "sensor.example_site_upload_throughput",
+        "name": "Wi-Fi Upload",
+        "icon": "mdi:upload-network",
+        "color": "purple"
+      },
+      {
+        "type": "tile",
+        "entity": "sensor.example_site_average_client_snr",
+        "name": "Average SNR",
+        "icon": "mdi:signal-distance-variant",
+        "color": "green"
+      },
+      {
+        "type": "tile",
+        "entity": "sensor.example_site_poor_signal_clients",
+        "name": "Poor Signal",
+        "icon": "mdi:wifi-alert",
+        "color": "orange"
+      },
+      {
+        "type": "tile",
+        "entity": "sensor.example_site_poe_power",
+        "name": "PoE Load",
+        "icon": "mdi:ethernet-cable",
+        "color": "amber"
+      },
+      {
+        "type": "tile",
+        "entity": "sensor.example_site_devices_needing_firmware",
+        "name": "Firmware Needed",
+        "icon": "mdi:update",
+        "color": "red"
+      }
+    ]
+  },
+  {
+    "type": "grid",
+    "title": "Wi-Fi Client Distribution",
+    "columns": 3,
+    "square": false,
+    "cards": [
+      {
+        "type": "tile",
+        "entity": "sensor.example_site_2_4_ghz_clients",
+        "name": "2.4 GHz",
+        "icon": "mdi:wifi"
+      },
+      {
+        "type": "tile",
+        "entity": "sensor.example_site_5_ghz_clients",
+        "name": "5 GHz",
+        "icon": "mdi:wifi"
+      },
+      {
+        "type": "tile",
+        "entity": "sensor.example_site_6_ghz_clients",
+        "name": "6 GHz",
+        "icon": "mdi:wifi"
+      },
+      {
+        "type": "tile",
+        "entity": "sensor.example_site_downloaded_in_24_hours",
+        "name": "Downloaded · 24h",
+        "icon": "mdi:database-arrow-down"
+      },
+      {
+        "type": "tile",
+        "entity": "sensor.example_site_uploaded_in_24_hours",
+        "name": "Uploaded · 24h",
+        "icon": "mdi:database-arrow-up"
+      }
+    ]
+  },
+  {
+    "type": "history-graph",
+    "title": "Aruba Wi-Fi Throughput · 24 Hours",
+    "hours_to_show": 24,
+    "entities": [
+      {
+        "entity": "sensor.example_site_download_throughput",
+        "name": "Download"
+      },
+      {
+        "entity": "sensor.example_site_upload_throughput",
+        "name": "Upload"
+      }
+    ]
+  },
+  {
+    "type": "grid",
+    "title": "Wireless & Switching Infrastructure",
+    "columns": 2,
+    "square": false,
+    "cards": [
+      {
+        "type": "tile",
+        "entity": "binary_sensor.ap_1_ap_1_connectivity",
+        "name": "Access Point 1",
+        "icon": "mdi:access-point",
+        "color": "blue",
+        "tap_action": {
+          "action": "navigate",
+          "navigation_path": "/config/devices/device/REPLACE_WITH_DEVICE_ID_1"
+        }
+      },
+      {
+        "type": "tile",
+        "entity": "binary_sensor.ap_2_ap_2_connectivity",
+        "name": "Hot Tub",
+        "icon": "mdi:access-point",
+        "color": "blue",
+        "tap_action": {
+          "action": "navigate",
+          "navigation_path": "/config/devices/device/REPLACE_WITH_DEVICE_ID_2"
+        }
+      },
+      {
+        "type": "tile",
+        "entity": "binary_sensor.ap_3_ap_3_connectivity",
+        "name": "Access Point 3",
+        "icon": "mdi:access-point",
+        "color": "blue",
+        "tap_action": {
+          "action": "navigate",
+          "navigation_path": "/config/devices/device/REPLACE_WITH_DEVICE_ID_3"
+        }
+      },
+      {
+        "type": "tile",
+        "entity": "binary_sensor.ap_4_ap_4_connectivity",
+        "name": "Access Point 4",
+        "icon": "mdi:switch",
+        "color": "teal",
+        "tap_action": {
+          "action": "navigate",
+          "navigation_path": "/config/devices/device/REPLACE_WITH_DEVICE_ID_4"
+        }
+      },
+      {
+        "type": "tile",
+        "entity": "binary_sensor.ap_5_ap_5_connectivity",
+        "name": "Access Point 5",
+        "icon": "mdi:switch",
+        "color": "teal",
+        "tap_action": {
+          "action": "navigate",
+          "navigation_path": "/config/devices/device/REPLACE_WITH_DEVICE_ID_5"
+        }
+      },
+      {
+        "type": "tile",
+        "entity": "binary_sensor.switch_1_connectivity",
+        "name": "Switch Switch 1",
+        "icon": "mdi:switch",
+        "color": "teal",
+        "tap_action": {
+          "action": "navigate",
+          "navigation_path": "/config/devices/device/REPLACE_WITH_DEVICE_ID_6"
+        }
+      },
+      {
+        "type": "tile",
+        "entity": "binary_sensor.switch_2_connectivity",
+        "name": "Switch Switch 2",
+        "icon": "mdi:switch",
+        "color": "teal",
+        "tap_action": {
+          "action": "navigate",
+          "navigation_path": "/config/devices/device/REPLACE_WITH_DEVICE_ID_7"
+        }
+      }
+    ]
+  },
+  {
+    "type": "history-graph",
+    "title": "Network Clients & Infrastructure · 24 Hours",
+    "hours_to_show": 24,
+    "entities": [
+      {
+        "entity": "sensor.example_site_wireless_clients",
+        "name": "Wi-Fi Clients"
+      },
+      {
+        "entity": "sensor.example_site_devices_online",
+        "name": "Aruba Devices Online"
+      },
+      {
+        "entity": "sensor.pfsense_dhcp_leases_online",
+        "name": "DHCP Clients"
+      }
+    ]
+  }
+]

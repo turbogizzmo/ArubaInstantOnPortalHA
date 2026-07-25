@@ -1,0 +1,30 @@
+title: Network
+path: network
+icon: mdi:router-network
+# Example cards for the entities created by this integration.
+cards:
+  - type: grid
+    title: Aruba Instant On
+    columns: 3
+    square: false
+    cards:
+      - type: tile
+        entity: sensor.example_site_access_points_online
+        name: Access Points
+        icon: mdi:access-point
+      - type: tile
+        entity: sensor.example_site_switches_online
+        name: Switches
+        icon: mdi:switch
+      - type: tile
+        entity: sensor.example_site_wireless_clients
+        name: Wi-Fi Clients
+        icon: mdi:wifi
+      - type: tile
+        entity: sensor.example_site_major_alerts
+        name: Major Alerts
+        icon: mdi:alert-circle
+      - type: tile
+        entity: sensor.example_site_minor_alerts
+        name: Minor Alerts
+        icon: mdi:alert
