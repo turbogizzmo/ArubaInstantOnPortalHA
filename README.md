@@ -75,8 +75,8 @@ The setup form requires:
 
 ## Entities
 
-Site entities include infrastructure totals, online APs/switches, wireless
-clients, SSIDs, alert counts, traffic, 24-hour transfer totals, radio-band
+Site entities include infrastructure totals, online APs/switches, wired and
+wireless clients, SSIDs, alert counts, traffic, 24-hour transfer totals, radio-band
 distribution, SNR, poor-signal clients, PoE load, and firmware status.
 
 Each infrastructure device creates:
@@ -85,9 +85,11 @@ Each infrastructure device creates:
 - An uptime sensor
 - A Home Assistant device with model, serial, and relationship to the site
 
-The old `wiredClientSummary` endpoint returns HTTP 404 for some current sites.
-In that case the wired-client sensor is `unknown`; the rest of the integration
-continues updating.
+Current portal responses can include both wired and wireless clients in
+`clientSummary`. The integration classifies those records by `clientType` and
+uses the older `wiredClientSummary` endpoint only as a compatibility fallback.
+If neither response supplies wired clients, the wired-client sensor is
+`unknown` while the rest of the integration continues updating.
 
 ## Dashboard
 

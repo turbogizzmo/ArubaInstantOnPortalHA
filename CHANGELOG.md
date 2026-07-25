@@ -7,6 +7,13 @@ and the project intends to use semantic versioning.
 
 ## [Unreleased]
 
+### Fixed
+
+- Correctly classify the current `/clientSummary` response, which contains
+  both wired and wireless clients.
+- Use `/wiredClientSummary` only as a compatibility fallback when the combined
+  response contains no wired clients.
+
 ### Added
 
 - Read-only Aruba Instant On portal client with OAuth PKCE authentication.
@@ -20,5 +27,5 @@ and the project intends to use semantic versioning.
 
 - The upstream portal API is undocumented and unsupported.
 - MFA is not supported by the automated portal authentication flow.
-- Wired-client summary is unavailable on sites where the legacy endpoint
-  returns HTTP 404.
+- Wired-client data may be unavailable on older API variants where neither
+  the combined nor legacy client-summary response includes wired clients.

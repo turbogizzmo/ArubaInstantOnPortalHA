@@ -187,12 +187,29 @@ class ArubaInstantOnClient:
         site = await self.async_validate()
         landing = await self._get(f"{prefix}/landingPage", optional=True)
         inventory = await self._get(f"{prefix}/inventory")
-        wireless = await self._get(
+        clients = await self._get(
             f"{prefix}/clientSummary", optional=True
         )
-        wired = await self._get(
-            f"{prefix}/wiredClientSummary", optional=True
-        )
+        client_elements = list((clients or {}).get("elements", []))
+        wireless_clients = [
+            client
+            for client in client_elements
+            if client.get("clientType") == "wireless"
+        ]
+        wired_clients = [
+            client
+            for client in client_elements
+            if client.get("clientType") == "wired"
+        ]
+        if not wired_clients:
+            wired = await self._get(
+                f"{prefix}/wiredClientSummary", optional=True
+            )
+            wired_clients = (
+                None
+                if wired is None
+                else list(wired.get("elements", []))
+            )
         networks = await self._get(
             f"{prefix}/networksSummary", optional=True
         )
@@ -206,14 +223,8 @@ class ArubaInstantOnClient:
             "site": site,
             "landing": landing or {},
             "inventory": list((inventory or {}).get("elements", [])),
-            "wireless_clients": list(
-                (wireless or {}).get("elements", [])
-            ),
-            "wired_clients": (
-                None
-                if wired is None
-                else list(wired.get("elements", []))
-            ),
+            "wireless_clients": wireless_clients,
+            "wired_clients": wired_clients,
             "networks": list((networks or {}).get("elements", [])),
             "alerts": alerts or {},
             "application_usage": list(

@@ -54,6 +54,9 @@ Optional:
 - `applicationCategoryUsage`
 
 Optional endpoints may return 404 without failing the integration.
+On current sites, `clientSummary` can contain both client types; records are
+split using `clientType`. `wiredClientSummary` is queried only when the
+combined response does not contain wired clients.
 
 ## Entity stability
 
