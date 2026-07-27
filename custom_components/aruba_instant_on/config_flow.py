@@ -109,6 +109,13 @@ class ArubaInstantOnConfigFlow(
         self, user_input: dict[str, Any] | None = None
     ) -> FlowResult:
         """Let the user select one of the discovered sites."""
+        if (
+            not hasattr(self, "_available_sites")
+            or not hasattr(self, "_pending_data")
+            or not self._available_sites
+        ):
+            return await self.async_step_user()
+
         errors: dict[str, str] = {}
         if user_input is not None:
             site_id = user_input[CONF_SITE_ID]
@@ -117,12 +124,13 @@ class ArubaInstantOnConfigFlow(
                 return await self._async_create_site_entry(site_id, site)
             errors[CONF_SITE_ID] = "invalid_site"
 
-        names = [
-            str(site.get("name") or site_id)
-            for site_id, site in self._available_sites.items()
-        ]
+        name_counts: dict[str, int] = {}
+        for site_id, site in self._available_sites.items():
+            name = str(site.get("name") or site_id)
+            name_counts[name] = name_counts.get(name, 0) + 1
+
         duplicate_names = {
-            name for name in names if names.count(name) > 1
+            name for name, count in name_counts.items() if count > 1
         }
         choices = {
             site_id: (
