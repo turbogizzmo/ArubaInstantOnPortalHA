@@ -33,6 +33,8 @@ class ArubaInstantOnConfigFlow(
     """Handle an Aruba Instant On config flow."""
 
     VERSION = 1
+    _available_sites: dict[str, dict[str, Any]]
+    _pending_data: dict[str, Any]
 
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
@@ -43,27 +45,50 @@ class ArubaInstantOnConfigFlow(
                 async_get_clientsession(self.hass),
                 user_input[CONF_USERNAME],
                 user_input[CONF_PASSWORD],
-                user_input[CONF_SITE_ID],
             )
             try:
-                site = await client.async_validate()
+                sites = await client.async_get_sites()
             except ArubaInstantOnAuthenticationError:
                 errors["base"] = "invalid_auth"
             except ArubaInstantOnConnectionError:
                 errors["base"] = "cannot_connect"
             else:
-                await self.async_set_unique_id(user_input[CONF_SITE_ID])
-                self._abort_if_unique_id_configured()
-                return self.async_create_entry(
-                    title=site.get("name", user_input[CONF_SITE_ID]),
-                    data=user_input,
-                )
+                configured_site_ids = {
+                    entry.data.get(CONF_SITE_ID)
+                    for entry in self._async_current_entries()
+                }
+                valid_sites = {
+                    site_id: site
+                    for site in sites
+                    if isinstance((site_id := site.get("id")), str)
+                    and site_id
+                }
+                self._available_sites = {
+                    site_id: site
+                    for site_id, site in valid_sites.items()
+                    if site_id not in configured_site_ids
+                }
+                if not valid_sites:
+                    errors["base"] = "no_sites"
+                elif not self._available_sites:
+                    return self.async_abort(
+                        reason="all_sites_configured"
+                    )
+                else:
+                    self._pending_data = dict(user_input)
+                    if len(self._available_sites) == 1:
+                        site_id, site = next(
+                            iter(self._available_sites.items())
+                        )
+                        return await self._async_create_site_entry(
+                            site_id, site
+                        )
+                    return await self.async_step_site()
 
         schema = vol.Schema(
             {
                 vol.Required(CONF_USERNAME): str,
                 vol.Required(CONF_PASSWORD): str,
-                vol.Required(CONF_SITE_ID): str,
                 vol.Optional(
                     CONF_SCAN_INTERVAL,
                     default=DEFAULT_SCAN_INTERVAL,
@@ -78,6 +103,53 @@ class ArubaInstantOnConfigFlow(
         )
         return self.async_show_form(
             step_id="user", data_schema=schema, errors=errors
+        )
+
+    async def async_step_site(
+        self, user_input: dict[str, Any] | None = None
+    ) -> FlowResult:
+        """Let the user select one of the discovered sites."""
+        errors: dict[str, str] = {}
+        if user_input is not None:
+            site_id = user_input[CONF_SITE_ID]
+            site = self._available_sites.get(site_id)
+            if site is not None:
+                return await self._async_create_site_entry(site_id, site)
+            errors[CONF_SITE_ID] = "invalid_site"
+
+        names = [
+            str(site.get("name") or site_id)
+            for site_id, site in self._available_sites.items()
+        ]
+        duplicate_names = {
+            name for name in names if names.count(name) > 1
+        }
+        choices = {
+            site_id: (
+                f"{name} ({site_id})"
+                if name in duplicate_names
+                else name
+            )
+            for site_id, site in self._available_sites.items()
+            if (name := str(site.get("name") or site_id))
+        }
+        return self.async_show_form(
+            step_id="site",
+            data_schema=vol.Schema(
+                {vol.Required(CONF_SITE_ID): vol.In(choices)}
+            ),
+            errors=errors,
+        )
+
+    async def _async_create_site_entry(
+        self, site_id: str, site: dict[str, Any]
+    ) -> FlowResult:
+        """Create a config entry for a discovered site."""
+        await self.async_set_unique_id(site_id)
+        self._abort_if_unique_id_configured()
+        return self.async_create_entry(
+            title=str(site.get("name") or site_id),
+            data={**self._pending_data, CONF_SITE_ID: site_id},
         )
 
     @staticmethod

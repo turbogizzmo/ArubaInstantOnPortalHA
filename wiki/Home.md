@@ -9,7 +9,7 @@ traffic, radios, PoE load, alerts, and firmware state in Home Assistant.
 ## Start here
 
 1. [Choose an installation method](Installation.md).
-2. [Prepare a dedicated Instant On account and locate the site ID](Account-and-Site-ID.md).
+2. [Prepare a dedicated Instant On account](Account-and-Site-ID.md).
 3. [Add and configure the integration](Configuration.md).
 4. [Understand the devices and entities it creates](Entities.md).
 5. [Build the example network dashboard](Dashboard.md).
@@ -53,4 +53,3 @@ On web portal is private and may change without notice.
 Never post credentials, tokens, cookies, site IDs, serial numbers, MAC
 addresses, IP addresses, SSIDs, client lists, or unredacted diagnostics.
 Repository examples use fictional names by design.
-

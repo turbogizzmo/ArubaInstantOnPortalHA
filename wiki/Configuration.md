@@ -15,7 +15,6 @@
 | --- | --- |
 | Email | Dedicated Instant On portal account |
 | Password | Password for that dedicated account |
-| Site ID | UUID from the portal URL |
 | Polling interval | Refresh frequency in seconds |
 
 The polling interval accepts values from 60 through 3600 seconds. Start with
@@ -30,8 +29,9 @@ Before saving, the config flow:
 2. Attempts the OAuth authorization-code flow with PKCE.
 3. Obtains a short-lived bearer token.
 4. Requests the accessible-site list.
-5. Confirms the supplied site ID is available to the account.
-6. Creates the Home Assistant config entry.
+5. Excludes sites that are already configured.
+6. Selects the only remaining site automatically or asks the user to choose.
+7. Creates the Home Assistant config entry.
 
 The site UUID becomes the unique ID, so duplicate entries are rejected.
 
@@ -42,8 +42,8 @@ The site UUID becomes the unique ID, so duplicate entries are rejected.
 3. Open **Configure**.
 4. Enter a value from 60 to 3600 seconds.
 
-Credential and site changes currently require removing and adding the config
-entry again.
+Credential changes currently require removing and adding the config entry
+again. Add the integration again to configure another accessible site.
 
 ## Suggested polling intervals
 
@@ -65,4 +65,3 @@ After setup, Home Assistant should show:
 - Connectivity and uptime entities for infrastructure devices
 
 Continue with [Entities](Entities.md) to understand the resulting model.
-

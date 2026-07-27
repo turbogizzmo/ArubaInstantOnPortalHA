@@ -16,7 +16,7 @@ installation is useful for development or when HACS is unavailable.
 4. Select **Integration** as the category and add the repository.
 5. Search for **Aruba Instant On** and select **Download**.
 6. Restart Home Assistant when HACS asks.
-7. Continue with [Account and Site ID](Account-and-Site-ID.md).
+7. Continue with [Account and Site Selection](Account-and-Site-ID.md).
 
 ![HACS installation path](images/installation-path.svg)
 
@@ -71,4 +71,3 @@ Python modules until the next full restart.
 3. Open the integration menu and choose **Delete**.
 4. If installed through HACS, remove it from HACS separately.
 5. Restart before manually deleting its custom-component directory.
-

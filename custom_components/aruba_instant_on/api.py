@@ -41,7 +41,7 @@ class ArubaInstantOnClient:
         session: ClientSession,
         username: str,
         password: str,
-        site_id: str,
+        site_id: str | None = None,
     ) -> None:
         self._session = session
         self._username = username
@@ -171,6 +171,10 @@ class ArubaInstantOnClient:
         return list((payload or {}).get("elements", []))
 
     async def async_validate(self) -> dict[str, Any]:
+        if self.site_id is None:
+            raise ArubaInstantOnAuthenticationError(
+                "No Instant On site is selected"
+            )
         sites = await self.async_get_sites()
         site = next(
             (item for item in sites if item.get("id") == self.site_id),
