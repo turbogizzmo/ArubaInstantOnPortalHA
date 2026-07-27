@@ -20,12 +20,12 @@
 - Confirm it can access the intended site.
 - Avoid repeatedly retrying at a short interval.
 
-## Site validation failed
+## No sites are available
 
-- Reopen the intended site in the portal.
-- Copy the site UUID from the address bar.
-- Confirm the dedicated account can see that exact site.
-- Do not enter the friendly site name or device serial number.
+- Confirm the dedicated account can see at least one site in the portal.
+- If all accessible sites are already configured, add another config entry
+  only after granting the account access to another site.
+- Reload the integration after changing site permissions in the portal.
 
 ## Some sensors are unknown
 
@@ -63,4 +63,3 @@ or the report concerns credential handling.
 Because the portal API is private, a portal release can break authentication or
 response parsing. Include the Home Assistant version, integration version,
 failure stage, and a minimal redacted log excerpt in a bug report.
-

@@ -7,6 +7,13 @@ and the project intends to use semantic versioning.
 
 ## [Unreleased]
 
+### Added
+
+- Discover accessible Aruba Instant On sites during setup.
+- Automatically select the only available site or show a site picker when
+  multiple sites are available.
+- Hide sites that are already configured.
+
 ## [0.1.0] - 2026-07-25
 
 ### Fixed

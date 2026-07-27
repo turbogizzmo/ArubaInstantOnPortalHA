@@ -7,17 +7,26 @@
         "data": {
           "username": "Email",
           "password": "Password",
-          "site_id": "Site ID",
           "scan_interval": "Polling interval (seconds)"
+        }
+      },
+      "site": {
+        "title": "Select an Aruba Instant On site",
+        "description": "Choose the site you want Home Assistant to monitor.",
+        "data": {
+          "site_id": "Site"
         }
       }
     },
     "error": {
       "cannot_connect": "Unable to connect to Aruba Instant On",
-      "invalid_auth": "Authentication failed or the site is not accessible"
+      "invalid_auth": "Authentication failed",
+      "invalid_site": "Select a valid Aruba Instant On site",
+      "no_sites": "This account does not have access to any Aruba Instant On sites"
     },
     "abort": {
-      "already_configured": "This Instant On site is already configured"
+      "already_configured": "This Instant On site is already configured",
+      "all_sites_configured": "All sites accessible to this account are already configured"
     }
   },
   "options": {

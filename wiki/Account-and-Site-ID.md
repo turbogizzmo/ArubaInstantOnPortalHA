@@ -1,4 +1,4 @@
-# Account and Site ID
+# Account and Site Selection
 
 Use a dedicated Instant On portal account instead of an owner's everyday
 administrator account.
@@ -16,23 +16,12 @@ The current automated portal authentication flow cannot complete an MFA
 challenge. If organizational policy requires MFA for every portal account,
 this integration cannot authenticate until that limitation is resolved.
 
-## Find the site ID
+## Select a site
 
-1. Sign in to the Instant On web portal.
-2. Open the site you want Home Assistant to monitor.
-3. Look at the browser address bar.
-4. Copy the UUID associated with the selected site.
-
-The expected value resembles this fictional format:
-
-```text
-11111111-2222-4333-8444-555555555555
-```
-
-Do not use the friendly site name, account ID, device serial number, or Home
-Assistant device ID.
-
-![Site ID anatomy](images/site-id.svg)
+Home Assistant discovers the sites available to the account after validating
+the email and password. If the account has access to one unconfigured site,
+that site is selected automatically. If it has access to multiple sites, choose
+one from the setup form.
 
 ## Multiple sites
 
@@ -40,7 +29,7 @@ Add the integration once for each site:
 
 1. Use the same dedicated account if it has intentionally limited access to
    all required sites.
-2. Enter a different site ID for every config entry.
+2. Run **Add integration** again and select another discovered site.
 3. Home Assistant prevents the same site ID from being configured twice.
 
 For stronger isolation, use a separate portal account per site.
@@ -53,4 +42,3 @@ reports, screenshots, or this repository.
 
 If credentials may have been exposed, change the password immediately. Removing
 the value from a later Git commit does not remove it from earlier history.
-
