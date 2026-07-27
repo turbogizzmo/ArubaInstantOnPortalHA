@@ -42,7 +42,7 @@ modify site configuration.
 ## Installation
 
 For an illustrated walkthrough covering installation, account preparation,
-site-ID discovery, configuration, entities, dashboards, and recovery, see the
+site discovery, configuration, entities, dashboards, and recovery, see the
 [project wiki](wiki/Home.md).
 
 ### Manual
@@ -52,6 +52,9 @@ site-ID discovery, configuration, entities, dashboards, and recovery, see the
 2. Restart Home Assistant.
 3. Open **Settings → Devices & services → Add integration**.
 4. Search for **Aruba Instant On**.
+5. Enter the dedicated Instant On account credentials. Home Assistant selects
+   the site automatically or offers a site list when the account has access to
+   more than one.
 
 ### HACS
 
@@ -63,6 +66,8 @@ site-ID discovery, configuration, entities, dashboards, and recovery, see the
 4. Install **Aruba Instant On** and restart Home Assistant.
 5. Open **Settings → Devices & services → Add integration** and search for
    **Aruba Instant On**.
+6. Enter the dedicated Instant On account credentials and select a discovered
+   site when prompted.
 
 ## Account preparation
 
@@ -84,11 +89,11 @@ The setup form requires:
 | --- | --- |
 | Email | Dedicated Instant On portal account |
 | Password | Password for that account |
-| Site ID | UUID from the Instant On portal |
 | Polling interval | 60–3600 seconds; 300 recommended |
 
-The site ID is the UUID shown in the Instant On portal URL while viewing the
-site. It is not the site name, account ID, or device serial number.
+After authentication, the integration discovers every site available to the
+account. It selects the only unconfigured site automatically or displays a
+site picker when multiple sites are available.
 
 ## Entities
 
@@ -126,7 +131,7 @@ included because Home Assistant registry IDs are installation-specific.
 ## Troubleshooting
 
 See [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) for authentication,
-site-ID, unavailable-entity, API-change, and diagnostics guidance.
+site-selection, unavailable-entity, API-change, and diagnostics guidance.
 The [illustrated troubleshooting guide](wiki/Troubleshooting.md) also provides
 a decision path and safe diagnostic-sharing checklist.
 
