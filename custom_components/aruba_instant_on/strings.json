@@ -16,17 +16,26 @@
         "data": {
           "site_id": "Site"
         }
+      },
+      "reauth_confirm": {
+        "title": "Reauthenticate Aruba Instant On",
+        "description": "Instant On rejected the saved password for {username}. Enter the current password.",
+        "data": {
+          "password": "Password"
+        }
       }
     },
     "error": {
       "cannot_connect": "Unable to connect to Aruba Instant On",
       "invalid_auth": "Authentication failed",
       "invalid_site": "Select a valid Aruba Instant On site",
-      "no_sites": "This account does not have access to any Aruba Instant On sites"
+      "no_sites": "This account does not have access to any Aruba Instant On sites",
+      "unknown": "Unexpected error"
     },
     "abort": {
       "already_configured": "This Instant On site is already configured",
-      "all_sites_configured": "All sites accessible to this account are already configured"
+      "all_sites_configured": "All sites accessible to this account are already configured",
+      "reauth_successful": "Reauthentication was successful"
     }
   },
   "options": {
