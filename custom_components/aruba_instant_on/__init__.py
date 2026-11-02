@@ -7,7 +7,7 @@ from datetime import timedelta
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers.aiohttp_client import async_get_clientsession
+from homeassistant.helpers.aiohttp_client import async_create_clientsession
 
 from .api import ArubaInstantOnClient
 from .const import (
@@ -26,8 +26,10 @@ async def async_setup_entry(
     hass: HomeAssistant, entry: ArubaInstantOnConfigEntry
 ) -> bool:
     """Set up Aruba Instant On from a config entry."""
+    # A dedicated session keeps this account's SSO cookies separate from
+    # other entries and from the session shared by other integrations.
     client = ArubaInstantOnClient(
-        async_get_clientsession(hass),
+        async_create_clientsession(hass),
         entry.data[CONF_USERNAME],
         entry.data[CONF_PASSWORD],
         entry.data[CONF_SITE_ID],

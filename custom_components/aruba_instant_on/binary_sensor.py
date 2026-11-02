@@ -35,6 +35,8 @@ class ArubaInstantOnDeviceConnectivity(
 
     _attr_name = "Connectivity"
     _attr_device_class = BinarySensorDeviceClass.CONNECTIVITY
+    # Keep device addresses out of the recorder database and history exports.
+    _unrecorded_attributes = frozenset({"ip_address", "mac_address"})
 
     def __init__(self, coordinator, device: dict[str, Any]) -> None:
         super().__init__(coordinator, device, "connectivity")

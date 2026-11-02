@@ -9,12 +9,18 @@ import time
 from typing import Any
 from urllib.parse import parse_qs, urlparse
 
-from aiohttp import ClientResponseError, ClientSession
+from aiohttp import (
+    ClientError,
+    ClientResponseError,
+    ClientSession,
+    ClientTimeout,
+)
 
 PORTAL_URL = "https://portal.arubainstanton.com"
 SSO_URL = "https://sso.arubainstanton.com"
 API_URL = "https://nb.portal.arubainstanton.com/api"
 API_VERSION = "7"
+REQUEST_TIMEOUT = ClientTimeout(total=30)
 
 
 class ArubaInstantOnError(Exception):
@@ -53,7 +59,7 @@ class ArubaInstantOnClient:
     async def _authenticate(self) -> None:
         try:
             settings_response = await self._session.get(
-                f"{PORTAL_URL}/settings.json"
+                f"{PORTAL_URL}/settings.json", timeout=REQUEST_TIMEOUT
             )
             settings_response.raise_for_status()
             settings = await settings_response.json()
@@ -65,6 +71,7 @@ class ArubaInstantOnClient:
                     "username": self._username,
                     "password": self._password,
                 },
+                timeout=REQUEST_TIMEOUT,
             )
             if login_response.status in (401, 403):
                 raise ArubaInstantOnAuthenticationError(
@@ -96,6 +103,7 @@ class ArubaInstantOnClient:
                     "sessionToken": session_token,
                 },
                 allow_redirects=False,
+                timeout=REQUEST_TIMEOUT,
             )
             location = authorization_response.headers.get("Location", "")
             authorization_code = parse_qs(
@@ -115,6 +123,7 @@ class ArubaInstantOnClient:
                     "code_verifier": verifier,
                     "grant_type": "authorization_code",
                 },
+                timeout=REQUEST_TIMEOUT,
             )
             token_response.raise_for_status()
             token_data = await token_response.json()
@@ -125,8 +134,10 @@ class ArubaInstantOnClient:
             )
         except ArubaInstantOnAuthenticationError:
             raise
-        except (ClientResponseError, KeyError, ValueError) as err:
-            raise ArubaInstantOnConnectionError(str(err)) from err
+        except (ClientError, TimeoutError, KeyError, ValueError) as err:
+            raise ArubaInstantOnConnectionError(
+                str(err) or type(err).__name__
+            ) from err
 
     async def _ensure_authenticated(self) -> None:
         if (
@@ -146,14 +157,18 @@ class ArubaInstantOnClient:
         }
         try:
             response = await self._session.get(
-                f"{API_URL}{endpoint}", headers=headers
+                f"{API_URL}{endpoint}",
+                headers=headers,
+                timeout=REQUEST_TIMEOUT,
             )
             if response.status == 401:
                 self._access_token = None
                 await self._ensure_authenticated()
                 headers["Authorization"] = f"Bearer {self._access_token}"
                 response = await self._session.get(
-                    f"{API_URL}{endpoint}", headers=headers
+                    f"{API_URL}{endpoint}",
+                    headers=headers,
+                    timeout=REQUEST_TIMEOUT,
                 )
             if optional and response.status == 404:
                 return None
@@ -165,6 +180,10 @@ class ArubaInstantOnClient:
                     "Instant On rejected the session"
                 ) from err
             raise ArubaInstantOnConnectionError(str(err)) from err
+        except (ClientError, TimeoutError, ValueError) as err:
+            raise ArubaInstantOnConnectionError(
+                str(err) or type(err).__name__
+            ) from err
 
     async def async_get_sites(self) -> list[dict[str, Any]]:
         payload = await self._get("/sites/")

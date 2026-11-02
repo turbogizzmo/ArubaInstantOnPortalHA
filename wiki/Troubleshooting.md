@@ -20,6 +20,11 @@
 - Confirm it can access the intended site.
 - Avoid repeatedly retrying at a short interval.
 
+If the portal rejects the saved password, the integration stops polling and
+Home Assistant shows a **Reauthenticate** prompt under **Settings > Devices &
+services**. Enter the current password there; the entry reloads without
+losing its entities.
+
 ## No sites are available
 
 - Confirm the dedicated account can see at least one site in the portal.

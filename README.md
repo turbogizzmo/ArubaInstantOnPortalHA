@@ -140,7 +140,9 @@ a decision path and safe diagnostic-sharing checklist.
 The coordinator receives client-level records from the portal to calculate
 aggregate statistics. This release does not create client entities or expose
 client names, IP addresses, or MAC addresses on the dashboard. Diagnostics
-redact credentials and common device identifiers.
+redact credentials, the site ID, names, SSIDs, serial numbers and MAC/IP
+addresses, and report client, network and application records only as counts
+and field names. Still review a diagnostics file before sharing it.
 
 ## Development
 

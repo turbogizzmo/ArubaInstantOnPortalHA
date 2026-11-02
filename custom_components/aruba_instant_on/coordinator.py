@@ -8,6 +8,7 @@ from typing import Any
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
+from homeassistant.exceptions import ConfigEntryAuthFailed
 from homeassistant.helpers.update_coordinator import (
     DataUpdateCoordinator,
     UpdateFailed,
@@ -48,6 +49,10 @@ class ArubaInstantOnCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         try:
             return await self.client.async_get_site_data()
         except ArubaInstantOnAuthenticationError as err:
-            raise UpdateFailed(f"Authentication failed: {err}") from err
+            # Stop polling and ask the user for new credentials instead of
+            # re-submitting a rejected password to the SSO endpoint.
+            raise ConfigEntryAuthFailed(
+                f"Authentication failed: {err}"
+            ) from err
         except ArubaInstantOnConnectionError as err:
             raise UpdateFailed(f"Cloud update failed: {err}") from err
